@@ -1,0 +1,67 @@
+.block_instructorform h2.heading {
+    font-family: Playfair Display;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 53.32px;
+}
+.block_instructorform h2.heading span {
+    font-family: Playfair Display;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 53.32px;
+}
+.block_instructorform p.sub-heading,.subheading {
+    font-family: Kumbh Sans;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22.32px;
+
+}
+.block_instructorform .block-body-wrapper .instructor-form{
+    background-color: #F7E7FE !important;
+}
+.block_instructorform .block-body-wrapper{
+    background-color: #F7E7FE !important;
+}
+.block_instructorform form {
+    background-color: white !important;
+    padding-top: 20px;
+    border-radius: 20px;
+    padding-inline: 40px;
+    padding-bottom: 20px;
+}
+.block_instructorform .form {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.block_instructorform form label {
+    padding-left: 10px;
+    font-family: Kumbh Sans;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19.84px;
+    /* text-align: left; */
+
+}
+.block_instructorform form input{
+    border-radius: 12px;
+}
+.block_instructorform p{
+    font-family: Kumbh Sans;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22.32px;
+}
+.block_instructorform button#btn-save-changes{
+    background-color: #B10DF3;
+    color: white;
+}
+.block_instructorform .content {
+    padding-top: 20px;
+    padding-left: 40px;
+}
+#instructor-regform .asterisk-mark {
+    color: red;
+}
+

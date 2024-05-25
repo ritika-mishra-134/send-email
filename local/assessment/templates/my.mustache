@@ -1,0 +1,64 @@
+<div class="row page-row">
+    <div class="col-12 page-col">
+        <div class="row">
+            {{#assessments}}
+            <div class="item col-lg-3 col-sm-12 col-md-6 animation-fade">
+                <div class="card">
+                    <div style="position:relative;">
+                        <img src="{{logo}}" class="img img-thumbnail" loading="lazy"/>
+                    </div>
+                    <div class="card-body course-card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <h4>
+                                    <a href="{{introlink}}#intro" target="__blank{{id}}__">
+                                        {{name}}
+                                    </a>
+                                </h4>
+                                <h5>
+                                    <a href="{{introlink}}#partner" target="__blank{{id}}__">
+                                        {{partnername}}
+                                    </a>
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                {{#paymentpriceid}}
+                                {{#amount}}&#x20B9;  {{amount}} {{/amount}}
+                                {{/paymentpriceid}}
+                                {{^paymentpriceid}}
+                                {{#str}}free, local_assessment{{/str}}
+                                {{/paymentpriceid}}
+                            </div>
+                            <div class="col-6">
+                                {{^paymentpriceid}}
+                                <a href="{{{link}}}" class="btn btn-primary" target="__blank{{id}}__">
+                                    {{buttonname}}
+                                </a>
+                                {{/paymentpriceid}}
+                                {{#paymentpriceid}}
+                                {{#enrolled}}
+                                <a href="{{{buttonlink}}}" class="btn btn-primary" target="__blank{{id}}__">
+                                    {{buttonname}}
+                                </a>
+                                {{/enrolled}}
+                                {{^enrolled}}
+                                <a href="{{{link}}}" class="btn btn-primary" target="__blank{{id}}__">
+                                    {{#str}}proceedtopay, local_assessment{{/str}}
+                                </a>
+                                {{/enrolled}}
+                                {{/paymentpriceid}}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/assessments}}
+            {{^assessments}}
+            {{#str}}noassessmentsfound, local_assessment{{/str}}
+            {{/assessments}}
+        </div>
+    </div>
+</div>

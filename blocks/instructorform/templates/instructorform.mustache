@@ -1,0 +1,61 @@
+<div class="instructor-form">
+    <div class="row">
+        <div class="col-md-6 content">
+            <h2 class="heading">You’re only a few steps away from joining us as a <span style="color:#B10DF3">Trainer!</span></h2>
+            <p><h2>Please fill in your details.</h2></p>
+            <p class="sub-heading">Instructors from around the world teach lakhs of learners with TNT Academy. We provide the tools and skills to teach what you love.</p>
+            <p class="subheading">Join the Ed-Revolution with TNT Academy leading the charge.</p>
+        </div>
+        <div class="col-md-4 form" id="form1">
+            <form method="POST" id="instructor-regform" action="{{siteurl}}/blocks/instructorform/resume_upload.php" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="firstname">First Name<span class="asterisk-mark">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="firstname" required>
+                        <div id="fname-required">
+
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="lastname">Last Name<span class="asterisk-mark">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="lastname" required>
+                        <div id="lname-required">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email<span class="asterisk-mark">*</span>
+                    </label>
+                    <input type="email" class="form-control" id="email" required>
+                    <div id="email-required">
+                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="mobile">Phone Number<span class="asterisk-mark">*</span>
+                    </label>
+                    <input type="phone" class="form-control" id="mobile" required>
+                    <div id="phone-required">
+                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="expertise">Field of Expertise<span class="asterisk-mark">*</span>
+                    </label>
+                    <input type="text" class="form-control" id="expertise" required>
+                    <div id="expertise-required">
+                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="resume">Resume<span class="asterisk-mark">*</span>
+                    </label>
+                    <input type="file" name="resume-instructor" class="form-control" id="resume" required>
+                    <div id="resume-required">
+                        </div>
+                </div>
+                <button type="button" class="btn btn-primary" id="btn-save-changes">Contact Me</button>
+                </form>
+        
+        </div>
+    </div>
+</div>

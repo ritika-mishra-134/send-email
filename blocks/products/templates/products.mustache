@@ -1,0 +1,373 @@
+{{!
+This file is part of Moodle - http://moodle.org/
+Moodle is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+Moodle is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+@template block_products/products
+Classes required for JS:
+* none
+Data attributes required for JS:
+* none
+Context variables required for this template:
+* none
+}}
+<div>
+   <div class="row products-thingsed">
+       <div class="row">
+         <div class="col-md-6">
+            <!-- Tabs nav -->
+            {{#headingcontent}}
+            <h2><span class="color-prime">{{firstelement}}</span> {{otherelements}}</h2>
+            <p>{{content}}</p>
+            {{/headingcontent}}
+            <div class="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+               {{#rowone}}
+               <a class="nav-link shadow active d-block" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+              
+               <span class="font-weight-bold small text-uppercase">
+                  <div class="d-flex lms-mgt">
+                     <img src="blocks/products/pix/product_tab_img.png" class="img-responsive product-tabimg d-none">
+                     <h2>{{heading1}}</h2>
+                  </div>
+                  <span class="d-none">
+                     <p class="lms-mgt">{{Content1}}</p>
+                     <a href="{{urlnew}}/local/products/products_lms.php" type="button" class="ml-3 learn-moretxt d-none">Learn More</a>
+                  </span>
+               </span>
+               
+               </a>
+               {{/rowone}}
+               {{#rowtwo}}
+               <a class="nav-link shadow" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+               <span class="font-weight-bold small text-uppercase">
+                  <div class="d-flex lms-mgt">
+                     <img src="blocks/products/pix/product_tab_img.png" class="img-responsive product-tabimg d-none">
+                     <h2>{{heading1}}</h2>
+                  </div>
+                  <span class="d-none">
+                     <p class="lms-mgt">{{Content1}}</p>
+                     <a href="{{urlnew}}/local/products/products_virtualabs.php" type="button" class="ml-3 learn-moretxt d-none">Learn More</a>
+                  </span>
+               </span>
+               </a>
+                {{/rowtwo}}
+                {{#rowthree}}
+               <a class="nav-link shadow" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+               
+               <span class="font-weight-bold small text-uppercase">
+                  <div class="d-flex lms-mgt">
+                     <img src="blocks/products/pix/product_tab_img.png" class="img-responsive product-tabimg d-none">
+                     <h2>{{heading1}}</h2>
+                  </div>
+                   <span class="d-none">
+                     <p class="lms-mgt">{{Content1}}</p>
+                     <a href="{{urlnew}}/local/products/products_industryconnect.php" type="button" class="ml-3 learn-moretxt d-none">Learn More</a>
+                  </span>
+               </span>
+               </a>
+               {{/rowthree}}
+               {{#rowfour}}
+               <a class="nav-link shadow" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+               <span class="font-weight-bold small text-uppercase">
+                  <div class="d-flex lms-mgt">
+                     <img src="blocks/products/pix/product_tab_img.png" class="img-responsive product-tabimg d-none">
+                     <h2 class="lms-mgt">{{heading1}}</h2>
+                  </div>
+                  <span class="d-none">
+                     <p class="lms-mgt">{{Content1}}</p>
+                     <a href="{{urlnew}}/local/products/products_marketplace.php" type="button" class="ml-3 learn-moretxt d-none">Learn More</a>
+                  </span>
+               </span>
+               </a>
+               {{/rowfour}}
+            </div>
+         </div>
+         <div class="col-md-6">
+            <!-- Tabs content -->
+            {{#headingcontent}}
+            <nav class="products-nav">
+               <a class="tryfree-btn purple-background" href="{{siteurl}}/local/dynamicpages/formpage.php">{{buttononehed}}</a>
+               <!--<a class="tryfree-btn white-background" href="{{buttonurltwo}}">{{buttontwohed}}</a>-->
+            </nav>
+            {{/headingcontent}}
+            <div class="tab-content" id="v-pills-tabContent">
+             {{#rowone}}
+               <div class="tab-pane fade shadow rounded show in active p-5" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                  <div class="row business-consult">
+                     <div class="col-6 ">
+                        <div class="card">
+                           <div class="card-body">
+                              {{#img1}}
+                                 <img src="{{img1}}" class="business-logo">
+                              {{/img1}}
+                              {{^img1}}
+                                 <img src="{{siteurl}}/blocks/products/pix/Group 35632.png" class="business-logo">
+                              {{/img1}}
+                              <h5 class="card-title">{{card1lmsheading}}</h5>
+                              <p class="card-text">{{card1lmscontent}}</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-6 ">
+                        <div class="card">
+                           <div class="card-body">
+                              {{#img2}}
+                                 <img src="{{img2}}" class="business-logo">
+                              {{/img2}}
+                              {{^img2}}
+                                 <img src="{{siteurl}}/blocks/products/pix/Group 35632.png" class="business-logo">
+                              {{/img2}}
+                              <h5 class="card-title">{{card2lmsheading}}</h5>
+                              <p class="card-text">{{card2lmscontent}}</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <!-- Content for the second column -->
+                  <div class="row business-consult">
+                     <div class="col-6 mb-3">
+                        <div class="card">
+                           <div class="card-body">
+                           {{#img3}}
+                           <img src="{{img3}}" class="business-logo">
+                           {{/img3}}
+                           {{^img3}}
+                           <img src="{{siteurl}}/blocks/products/pix/Group 35632.png" class="business-logo">
+                           {{/img3}}
+                              <h5 class="card-title">{{card3lmsheading}}</h5>
+                              <p class="card-text">{{card3lmscontent}}</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-6 mb-3">
+                        <div class="card">
+                           <div class="card-body">
+                           {{#img4}}
+                           <img src="{{img4}}" class="business-logo">
+                           {{/img4}}
+                           {{^img4}}
+                           <img src="{{siteurl}}/blocks/products/pix/Group 35632.png" class="business-logo">
+                           {{/img4}}
+                              <h5 class="card-title">{{card4lmsheading}}</h5>
+                              <p class="card-text">{{card4lmscontent}}</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+                {{/rowone}}
+                {{#rowtwo}}
+               <div class="tab-pane fade shadow rounded p-5" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                  <div class="row business-consult">
+                     <div class="col-6 ">
+                        <div class="card">
+                           <div class="card-body">
+                              {{#img1}}
+                                 <img src="{{img1}}" class="business-logo">
+                              {{/img1}}
+                              {{^img1}}
+                              <img src="{{siteurl}}/blocks/products/pix/Group 35632.png" class="business-logo">
+                              {{/img1}}
+                              <h5 class="card-title">{{card1lmsheading}}</h5>
+                              <p class="card-text">{{card1lmscontent}}</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-6 ">
+                        <div class="card">
+                           <div class="card-body">
+                           {{#img2}}
+                           <img src="{{img2}}" class="business-logo">
+                           {{/img2}}
+                           {{^img2}}
+                              <img src="{{siteurl}}/blocks/products/pix/Group 35632.png" class="business-logo">
+                           {{/img2}}
+                              <h5 class="card-title">{{card2lmsheading}}</h5>
+                              <p class="card-text">{{card2lmscontent}}</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <!-- Content for the second column -->
+                  <div class="row business-consult">
+                     <div class="col-6 mb-3">
+                        <div class="card">
+                           <div class="card-body">
+                           {{#img3}}
+                           <img src="{{img3}}" class="business-logo">
+                           {{/img3}}
+                           {{^img3}}
+                           <img src="{{siteurl}}/blocks/products/pix/Group 35632.png" class="business-logo">
+                           {{/img3}}
+                              <h5 class="card-title">{{card3lmsheading}}</h5>
+                              <p class="card-text">{{card3lmscontent}}</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-6 mb-3">
+                        <div class="card">
+                           <div class="card-body">
+                           {{#img4}}
+                           <img src="{{img4}}" class="business-logo">
+                           {{/img4}}
+                           {{^img4}}
+                           <img src="{{siteurl}}/blocks/products/pix/Group 35632.png" class="business-logo">
+                           {{/img4}}
+                              <h5 class="card-title">{{card4lmsheading}}</h5>
+                              <p class="card-text">{{card4lmscontent}}</p>
+                           </div>
+                        </div>
+                     </div>
+                     <!--<p>{{#str}}content, block_products{{/str}}</p>-->
+                  </div>
+               </div>
+               {{/rowtwo}}
+               {{#rowthree}}
+               <div class="tab-pane fade shadow rounded p-5" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                  <div class="row business-consult">
+                     <div class="col-6 ">
+                        <div class="card">
+                           <div class="card-body">
+                           {{#img1}}
+                                 <img src="{{img1}}" class="business-logo">
+                              {{/img1}}
+                              {{^img1}}
+                              <img src="{{siteurl}}/blocks/products/pix/Group 35632.png" class="business-logo">
+                              {{/img1}}
+                              <h5 class="card-title">{{card1lmsheading}}</h5>
+                              <p class="card-text">{{card1lmscontent}}</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-6 ">
+                        <div class="card">
+                           <div class="card-body">
+                           {{#img2}}
+                              <img src="{{img2}}" class="business-logo">
+                              {{/img2}}
+                           {{^img2}}
+                              <img src="{{siteurl}}/blocks/products/pix/Group 35632.png" class="business-logo">
+                           {{/img2}}
+                              <h5 class="card-title">{{card2lmsheading}}</h5>
+                              <p class="card-text">{{card2lmscontent}}</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <!-- Content for the second column -->
+                  <div class="row business-consult">
+                     <div class="col-6 mb-3">
+                        <div class="card">
+                           <div class="card-body">
+                           {{#img3}}
+                           <img src="{{img3}}" class="business-logo">
+                           {{/img3}}
+                           {{^img3}}
+                           <img src="{{siteurl}}/blocks/products/pix/Group 35632.png" class="business-logo">
+                           {{/img3}}
+                              <h5 class="card-title">{{card3lmsheading}}</h5>
+                              <p class="card-text">{{card3lmscontent}}</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-6 mb-3">
+                        <div class="card">
+                           <div class="card-body">
+                           {{#img4}}
+                           <img src="{{img4}}" class="business-logo">
+                           {{/img4}}
+                           {{^img4}}
+                           <img src="{{siteurl}}/blocks/products/pix/Group 35632.png" class="business-logo">
+                           {{/img4}}
+                              <h5 class="card-title">{{card4lmsheading}}</h5>
+                              <p class="card-text">{{card4lmscontent}}</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               {{/rowthree}}
+               {{#rowfour}}
+               <div class="tab-pane fade shadow rounded p-5" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                  <div class="row business-consult">
+                     <div class="col-6 ">
+                        <div class="card">
+                           <div class="card-body">
+                           {{#img1}}
+                                 <img src="{{img1}}" class="business-logo">
+                              {{/img1}}
+                              {{^img1}}
+                              <img src="{{siteurl}}/blocks/products/pix/Group 35632.png" class="business-logo">
+                              {{/img1}}
+                              <h5 class="card-title">{{card1lmsheading}}</h5>
+                              <p class="card-text">{{card1lmscontent}}</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-6 ">
+                        <div class="card">
+                           <div class="card-body">
+                           {{#img2}}
+                              <img src="{{img2}}" class="business-logo">
+                              {{/img2}}
+                           {{^img2}}
+                              <img src="{{siteurl}}/blocks/products/pix/Group 35632.png" class="business-logo">
+                           {{/img2}}
+                              <h5 class="card-title">{{card2lmsheading}}</h5>
+                              <p class="card-text">{{card2lmscontent}}</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <!-- Content for the second column -->
+                  <div class="row business-consult">
+                     <div class="col-6 mb-3">
+                        <div class="card">
+                           <div class="card-body">
+                           {{#img3}}
+                           <img src="{{img3}}" class="business-logo">
+                           {{/img3}}
+                           {{^img3}}
+                           <img src="{{siteurl}}/blocks/products/pix/Group 35632.png" class="business-logo">
+                           {{/img3}}
+                              <h5 class="card-title">{{card3lmsheading}}</h5>
+                              <p class="card-text">{{card3lmscontent}}</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-6 mb-3">
+                        <div class="card">
+                           <div class="card-body">
+                           {{#img4}}
+                           <img src="{{img4}}" class="business-logo">
+                           {{/img4}}
+                           {{^img4}}
+                           <img src="{{siteurl}}/blocks/products/pix/Group 35632.png" class="business-logo">
+                           {{/img4}}
+                              <h5 class="card-title">{{card4lmsheading}}</h5>
+                              <p class="card-text">{{card4lmscontent}}</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               {{/rowfour}}
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+

@@ -1,0 +1,149 @@
+<div class="col-sm-12"  id="assessment_form" style="background-color: white;"><br>
+    {{#record}}
+        <form  method="POST" id="assesmentForm" action="{{siteurl}}/local/assessment/logo_upload.php?id={{id}}" enctype="multipart/form-data">
+    {{/record}}
+    {{^record}}
+         <form  method="POST" id="assesmentForm" action="{{siteurl}}/local/assessment/logo_upload.php" enctype="multipart/form-data">
+    {{/record}}
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">
+                {{#str}}name, local_assessment{{/str}}<span class="text-danger">*</span>
+            </label>
+
+            <div class="col-sm-6">
+                <input type="text" class="form-control-plaintext" id="name" value={{#record}}{{name}}{{/record}}>
+                <span class="error-message" id="nameRequired"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="description" class="col-sm-2 col-form-label">
+                {{#str}}description, local_assessment{{/str}}<span class="text-danger">*</span>
+            </label>
+            <div class="col-sm-6">
+                <textarea class="form-control" id="description" rows="4">{{#record}}{{{description}}}{{/record}}</textarea>
+                <span class="error-message" id="descriptionRequired"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="sso" class="col-sm-2 col-form-label">
+                {{#str}}sso, local_assessment{{/str}}
+            </label>
+            <div class="col-sm-6">
+                <select id="sso" class="form-control">
+                    {{#record}}
+                        <option value="0">{{#str}}none, local_assessment{{/str}}</option>
+                        {{#ssodata}}
+                            <option value="{{id}}" {{#selected}}selected {{/selected}}>{{name}}</option>
+                        {{/ssodata}}
+                    {{/record}}
+                    {{^record}}
+                        <option selected disabled>
+                            {{#str}}choose, local_assessment{{/str}}
+                        </option>
+                        {{#sso}}
+                            <option value="{{id}}">{{name}}</option>
+                        {{/sso}}
+                    {{/record}} 
+                </select>    
+            </div>  
+        </div>
+        <div class="form-group row">
+            <label for="payment" class="col-sm-2 col-form-label">{{#str}}payment, local_assessment{{/str}}</label>
+            <div class="col-sm-6">
+                <select id="payment" class="form-control">
+                    {{#record}}
+                        <option value="0">{{#str}}none, local_assessment{{/str}}</option>
+                        {{#paymentdata}}
+                            <option value="{{id}}" {{#selected}}selected{{/selected}}>{{name}}</option>
+                        {{/paymentdata}}
+                    {{/record}}
+                    {{^record}}
+                        <option selected disabled>{{#str}}choose, local_assessment{{/str}}</option>
+                    {{/record}}
+                    {{#payment}}
+                        <option value="{{id}}">{{name}}</option>
+                    {{/payment}}
+                </select>
+            </div>    
+        </div>
+        <div class="form-group row">
+            <label for="subpayment" class="col-sm-2 col-form-label">{{#str}}subpayment, local_assessment{{/str}}</label>
+            <div class="col-sm-6">
+                <select id="subpayment" class="form-control">
+                    {{#record}}
+                        <option value="0">{{#str}}none, local_assessment{{/str}}</option>
+                        {{#subaccdata}}
+                        <option {{#selected}}selected{{/selected}} value="{{id}}">{{name}}</option>   
+                        {{/subaccdata}}
+                    {{/record}}
+                    {{^record}}
+                        <option selected disabled>{{#str}}choose, local_assessment{{/str}}</option>
+                    {{/record}}
+                    {{#subaccount}}
+                        <option value="{{id}}">{{name}}</option>
+                    {{/subaccount}}
+                </select>
+            </div>    
+        </div>
+        <div class="form-group row">
+            <label for="logo" class="col-sm-2 col-form-label">{{#str}}logo, local_assessment{{/str}}<span class="text-danger">*</span>
+            </label>
+            <div class="col-sm-6">
+                <input type="file" name="logo" class="form-control" id="logo">
+                <span style="color: red;">{{#str}}acceptedformat, local_assessment{{/str}}</span><br>
+                <span class="error-message" id="logoRequired"></span>
+                {{#record}}
+                    {{#url}}
+                        <span>{{filename}}</span>
+                    {{/url}}
+                    {{^url}}
+                        <span style="color: red;">{{#str}}filenotexist, local_assessment{{/str}}</span>
+                    {{/url}}
+                {{/record}}     
+            </div>    
+        </div>
+        <input type="hidden" class="form-control" id="firstname">
+        <input type="hidden" class="form-control" id="lastname">      
+        <div class="form-group row">
+            <label for="email" class="col-sm-2 col-form-label">{{#str}}email, local_assessment{{/str}}<span class="text-danger">*</span>
+
+            </label>
+            <div class="col-sm-6">
+                <input type="email" class="form-control" id="email" value="{{#record}}{{email}}{{/record}}">
+                <span class="error-message" id="emailRequired"></span>     
+            </div>    
+        </div>
+        <div class="form-group row">
+            <label for="api_endponit" class="col-sm-2 col-form-label">{{#str}}apiendpoint, local_assessment{{/str}}</label>
+            <div class="col-sm-6">
+                {{#record}}
+                    <input type="text" class="form-control" id="api_endponit" value="{{apiendpoint}}">
+                {{/record}}
+                {{^record}}
+                    <input type="text" class="form-control" id="api_endponit" disabled>
+                {{/record}}
+                <span class="error-message" id="apirequired"></span>
+            </div>    
+        </div>
+        <div class="form-group row">
+            <label for="token" class="col-sm-2 col-form-label">{{#str}}token, local_assessment{{/str}}</label>
+            <div class="col-sm-6">
+                {{#record}}
+                    <input type="password" class="form-control" id="token" value="{{apitoken}}">
+                {{/record}}
+                {{^record}}
+                    <input type="password" class="form-control" id="token" disabled>
+                {{/record}}
+                <span class="error-message" id="tokenrequired"></span>
+            </div>  
+        </div>
+        <input type="hidden" name="token" value="{{sesskey}}"/>
+        {{#record}}
+            <input type="hidden" name="userid" value="{{userid}}"/>
+            <button id="editbutton" class="btn btn-primary editbutton">{{#str}}submit, local_assessment{{/str}}</button>     
+        {{/record}}
+        {{^record}}
+            <button class="btn btn-primary" id="assessment_creation">{{#str}}submit, local_assessment{{/str}}</button>
+        {{/record}}   
+    </form>
+</div>

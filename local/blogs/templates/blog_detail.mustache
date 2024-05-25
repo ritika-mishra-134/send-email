@@ -1,0 +1,124 @@
+{{!
+    This file is part of Moodle - https://moodle.org/
+    
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_blogs/blog_detail
+    
+    Template purpose and description.
+    
+    Classes required for JS:
+    * none
+
+    IDs required for JS:
+    * none
+    
+    Data attributes required for JS:
+    * none
+    
+    Context variables required for this template:
+    * blog
+    * subject
+    * siteurl
+    * summary
+    * featuredblog
+    * title
+    * date
+    
+    Example context (json):
+    {
+    }
+}}
+
+{{#blog}}
+<div class="container">
+    <div class="blog">
+        <div class="blog-content">
+            <div class="row" style="margin-bottom: 15px;">
+                <div class="col-sm-6">
+                    <p style="font-size: 12px;">BLOGS</p>
+                    <h2>{{subject}}</h2>
+                </div>
+                <div class="col-sm-6"></div>
+            </div>
+
+            <div class="row author-detail">
+                <div class="col-sm-12">
+                    <div class="row justify-content-between">
+                        <div>
+                            <img class="author-img" src="{{siteurl}}/local/blogs/pix/Author_Image.png" alt="Author Image">
+                            <span class="blog-author-name">Jordan Mirchev</span>
+                        </div>
+                        <div>
+                            <p class="publish-date">Published on {{timecreated}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <img class="blog-img" src="{{blogimage}}" alt="Blog Image">
+                </div>
+            </div>
+
+            <div class="row mt-5 text-black">
+                <div class="col-sm-8" style="font-size: 16px;">
+                {{{summary}}}
+                </div>
+                <div class="col-sm-4">
+                    <p style="font-weight: bold; font-size: 18px;">Featured Posts</p>
+                    <hr style="border: 1px solid #1ED760; margin: 10px 0;">
+                    {{#featuredblog}}
+                    <a href="{{siteurl}}/local/blogs/blog_detail.php?id={{id}}">
+                    <p style="color: #3E5974;">{{title}}</p>
+                    </a>
+                    <p style="font-size: 10px; color: #919191;">Jordan Mirchev <span style="float: right;">{{date}}</span></p>
+                    <hr style="color: #D6DADC; margin: 10px 0;">
+                    {{/featuredblog}}
+                    {{^featuredblog}}
+                    <p style="color: #3E5974;">{{#str}}nopost, local_blogs{{/str}}</p>
+                    {{/featuredblog}}
+                    <div class="ad-box">
+                        <p>Fast track success exponentially</p>
+                        <p>Be a part of an ever growing community of revolution leading institutes.</p>
+                        <a href="{{siteurl}}/local/dynamicpages/formpage.php">
+                        <button class="start-button">Try for free</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/blog}}
+
+<script>
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>

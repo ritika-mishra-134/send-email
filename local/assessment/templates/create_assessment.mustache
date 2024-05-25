@@ -1,0 +1,161 @@
+<div class="col-sm-12"  id="assessment_form" style="background-color: white;"><br>
+    {{#record}}
+        <form method="POST" action="{{siteurl}}/local/assessment/assessment_logo.php?id={{id}}" id="assesmentcreationForm" enctype="multipart/form-data">
+    {{/record}}
+    {{^record}}
+        <form method="POST" action="{{siteurl}}/local/assessment/assessment_logo.php" id="assesmentcreationForm" enctype="multipart/form-data">
+    {{/record}}
+        <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">
+                {{#str}}name, local_assessment{{/str}}<span class="text-danger">*</span>
+            </label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control-plaintext" id="name" value="{{#record}}{{name}}{{/record}}">
+                <span class="error-message" id="nameRequired"></span>    
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="description" class="col-sm-2 col-form-label">
+                {{#str}}description, local_assessment{{/str}}<span class="text-danger">*</span>
+            </label>
+            <div class="col-sm-6">
+                <textarea class="form-control" id="assessmentdescription" rows="4">{{#record}}{{{description}}}t{{/record}}</textarea>
+                <span class="error-message" id="descriptionRequired"></span>    
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="assessmntparner" class="col-sm-2 col-form-label">
+                {{#str}}assessmentpartner, local_assessment{{/str}}<span class="text-danger">*</span>
+            </label>
+            <div class="col-sm-6">
+                <select id="assessmntparner" class="form-control">
+                    {{#record}}
+                        {{#apdata}}
+                        <option {{#selected}}selected{{/selected}} value="{{id}}">{{name}}</option>
+                        {{/apdata}}
+                    {{/record}}
+                    {{^record}}
+                        <option selected disabled>{{#str}}choose, local_assessment{{/str}}</option>
+                    {{/record}}
+                    {{#assessmentpartner}} 
+                        <option value="{{id}}">{{name}}</option>
+                    {{/assessmentpartner}}
+                </select>
+                <span class="error-message" id="assessmentpartnerequired"></span>    
+            </div>  
+        </div>
+        <div class="form-group row">
+            <label for="assessment_id" class="col-sm-2 col-form-label">
+                {{#str}}assessmentid, local_assessment{{/str}}<span class="text-danger">*</span>
+            </label>
+            <div class="col-sm-6">
+                <input type="text " class="form-control" id="assessment_id" value="{{#record}}{{partnerassessmentid}}{{/record}}">
+                <span class="error-message" id="assessmentidrequired"></span>   
+            </div>    
+        </div>
+        <div class="form-group row">
+            <label for="sso" class="col-sm-2 col-form-label">
+                {{#str}}sso, local_assessment{{/str}}
+            </label>
+            <div class="col-sm-6">
+                <select id="sso" class="form-control">
+                    {{#record}}
+                        {{#ssodata}}
+                            <option {{#selected}}selected{{/selected}} value="{{id}}">{{name}}</option>
+                        {{/ssodata}}
+                    {{/record}}
+                </select>     
+            </div>  
+        </div>    
+        <div class="form-group row">
+            <label for="link" class="col-sm-2 col-form-label">
+                {{#str}}link, local_assessment{{/str}}
+            </label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="link" value="{{#record}}{{link}}{{/record}}">
+                <span class="error-message" id="linkrequired"></span>
+            </div>    
+        </div>
+        <div class="form-group row">
+            <label for="assessmentpaid" class="col-sm-2 col-form-label">
+                {{#str}}assessmentpaid, local_assessment{{/str}}
+            </label>
+            <div class="col-sm-6">
+                <select id="assessmentpaid" class="form-control">
+                    {{#record}}
+                        {{#paymentpriceid}}
+                            <option value="1" selected>{{#str}}paid, local_assessment{{/str}}</option>
+                            <option value="2">{{#str}}free, local_assessment{{/str}}</option>
+                        {{/paymentpriceid}}
+                        {{^paymentpriceid}}
+                            <option value="2" selected>{{#str}}free, local_assessment{{/str}}</option> 
+                            <option value="1">{{#str}}paid, local_assessment{{/str}}</option>
+                        {{/paymentpriceid}}
+                    {{/record}}
+                    {{^record}}
+                        <option selected disabled>{{#str}}choose, local_assessment{{/str}}</option>    
+                        <option value="1">{{#str}}paid, local_assessment{{/str}}</option>
+                        <option value="2">{{#str}}free, local_assessment{{/str}}</option>    
+                    {{/record}}
+                </select>        
+            </div>    
+        </div>
+        <div class="form-group row">
+            <label for="merchantprice" class="col-sm-2 col-form-label">
+                {{#str}}merchantprice, local_assessment{{/str}}
+            </label>
+            <div class="col-sm-6">
+                {{#record}}
+                    <input type="text" class="form-control" id="merchantprice" 
+                    value="{{#mercomm}}{{mercomm}}{{/mercomm}}{{^mercomm}}{{amount}}{{/mercomm}}">
+                {{/record}}
+                {{^record}}
+                    <input type="text" class="form-control" id="merchantprice" disabled>
+                {{/record}}
+                <span class="error-message" id="merchantpricerequired"></span>
+            </div>  
+        </div>
+        <div class="form-group row">
+            <label for="vendorprice" class="col-sm-2 col-form-label">
+                {{#str}}vendorprice, local_assessment{{/str}}
+            </label>
+            <div class="col-sm-6">
+                {{#record}}
+                    <input type="text" class="form-control" id="vendorprice" value="{{subacc}}" {{^subacc}} disabled {{/subacc}}>
+                {{/record}}
+                {{^record}}
+                    <input type="text" class="form-control" id="vendorprice" disabled>
+                {{/record}}
+                <span class="error-message" id="vendorpricerequired"></span>
+            </div>  
+        </div>
+        <div class="form-group row">
+            <label for="logo" class="col-sm-2 col-form-label">
+                {{#str}}logo, local_assessment{{/str}}<span class="text-danger">*</span>
+            </label>
+            <div class="col-sm-6">
+                <input type="file" name="logo" class="form-control" id="assessmentlogo">
+                <span style="color: red;">{{#str}}acceptedformat, local_assessment{{/str}}</span><br>
+                <span class="error-message" id="logoRequired"></span>
+                {{#record}}
+                    {{#url}}
+                        <span>{{filename}}</span>
+                    {{/url}}
+                    {{^url}}
+                        <span style="color: red;">{{#str}}filenotexist, local_assessment{{/str}}</span>
+                    {{/url}}
+                {{/record}}           
+            </div>    
+        </div>
+        <input type="hidden" name="token" value="{{sesskey}}"/>
+        {{#record}}
+            <input type="hidden" name="userid" value="{{userid}}"/>
+            <button class="btn btn-primary editbutton" id="editbutton">
+                {{#str}}submit, local_assessment{{/str}}
+            </button>
+        {{/record}}
+        {{^record}}
+            <button class="btn btn-primary" id="assessmentcreation">{{#str}}submit, local_assessment{{/str}}</button>    
+        {{/record}}
+    </form>    
+</div>

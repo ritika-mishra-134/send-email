@@ -1,0 +1,74 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_blogs/posts
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * none
+    
+}}
+
+<div class="container container-article" id="article">
+    <div class="row mb-4">
+        <div class="d-flex">
+            <img src="{{site_url}}/local/blogs/pix/article-logo.png" class="article-header">
+            <h3 class="article-title">Blogs</h3>
+        </div>
+        <div class="" id="articleline">
+            <img id="line124" src="{{site_url}}/local/blogs/pix/Line 124.png">
+        </div>
+    </div>
+
+    <div class="row tab">
+        <button type="button" class="btn btn-default tablinks active btn-blog" data-blog="all" data-blog="all" onclick="openTab(event, 'all')" id="defaultOpen">All</button>
+        <button type="button" class="btn btn-default tablinks btn-blog" data-blog="trending" onclick="openTab(event, 'all')">Trending</button>
+        <button type="button" class="btn btn-default tablinks btn-blog" data-blog="corporate" onclick="openTab(event, 'all')">Corporate</button>
+        <button type="button" class="btn btn-default tablinks btn-blog" data-blog="colleges" onclick="openTab(event, 'all')">Colleges</button>
+        <button type="button" class="btn btn-default tablinks btn-blog" data-blog="schools" onclick="openTab(event, 'all')">Schools</button>
+        <button type="button" class="btn btn-default tablinks btn-blog" data-blog="individual" onclick="openTab(event, 'all')">Individuals</button>
+        <button type="button" class="btn btn-default tablinks btn-blog" data-blog="government" onclick="openTab(event, 'all')">Government</button>
+        <button type="button" class="btn btn-default tablinks btn-blog" data-blog="technology" onclick="openTab(event, 'all')">Technology</button>
+        <button type="button" class="btn btn-default tablinks btn-blog" data-blog="ai" onclick="openTab(event, 'all')">AI / ML</button>
+    </div>
+    <div class="tabcontent" id="all" style="display: block;">
+        {{>local_blogs/blogcard}}
+    </div>
+</div>
+
+
+<script>
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+
